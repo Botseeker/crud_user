@@ -31,7 +31,7 @@ class UserController extends Controller
         $user = User::create(
             $data 
         );
-        return 'Chegou aqui, feito';
+        return 'Crecudo Criado';
     }
 
     /**
@@ -42,7 +42,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return $user;
+       
     }
 
     /**
@@ -54,8 +56,8 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {    
-        $data = $request->input();
-        User::findOrFail($id)->update($data);
+        $user = $request->input();
+        User::findOrFail($id)->update($user);
         return User::findOrFail($id);      
     }
 
@@ -67,6 +69,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
     }
 }
