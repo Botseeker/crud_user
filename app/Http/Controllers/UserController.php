@@ -13,9 +13,9 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
         return $user = User::get();
-
+        
     }
 
     /**
@@ -27,11 +27,10 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $data = $request->input();
-        $data['name'];
         $user = User::create(
             $data 
         );
-        return 'Crecudo Criado';
+        return $user;
     }
 
     /**
